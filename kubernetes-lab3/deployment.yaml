@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pythonhellowroldapp
+  namespace: test
+spec:
+  selector:
+    matchLabels:
+      app: pythonhellowroldapp
+  template:
+    metadata:
+      labels:
+        app: pythonhellowroldapp
+    spec:
+      containers:
+      - name: pythonhellowroldapp
+        image: jpalaparthi/pythonhellowroldapp
+        imagePullPolicy: IfNotPresent
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 5000
